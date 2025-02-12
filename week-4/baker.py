@@ -51,12 +51,15 @@ franchises, days = input().split()
 franchises = int(franchises)
 days = int(days)
 list_2d = [] 
+#get data
 for j in range(franchises):
     lst_sold = input().split()
     for e in range(len(lst_sold)):
         lst_sold[e] = int(lst_sold[e])
     list_2d.append(lst_sold)
-print(list_2d)
+#check data
+for i in range(list_2d):
+    
 
 
 
