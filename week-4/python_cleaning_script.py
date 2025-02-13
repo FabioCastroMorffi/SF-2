@@ -1,29 +1,34 @@
-# %%
+# Your code for steps 6-9 go here:
 import pandas as pd
 #read chosen file
-coffee_df = pd.read_csv('data_for_coffee.csv') #encoding='unicode_escape')
-#replaces NaNs with arbitrary values on given data frame
-#new_df = coffee_df.fillna(9)
 
- 
-#position_df = coffee_df['Position (m) Run #4']
-new_list = []
-def mainCleanData():
-    j = 0 #arbitrary pointer for cut, it advances by 4 because the position column for each run is 4 columns away
-    positions_df = coffee_df.iloc[:,1::4] #all position columns in the main_df
-    num_columns = len(positions_df.columns) #number of columns -4 to look ahead
-    for column in range(num_columns): #there are 4 columns for this type of csv file, but we want to access the position ones
+#replaces NaNs with arbitrary values on given data frame
+#new_df = data_df.fillna(9)
+single_filter_df = pd.read_csv('data_with_terminal_speed.csv', encoding='unicode_escape')
+
+data1_df = single_filter_df.iloc[:, 0::4]
+data2_df = single_filter_df.iloc[:, 1::4]
+data_df = pd.concat([data1_df,data2_df], axis = 1)
+data_df = data_df.fillna(0) 
+#position_df = data_df['Position (m) Run #4']
+clean_df = pd.DataFrame()
+def mainCleanData(data_df, clean_df):
+    positions_df = data_df.iloc[:,11:] #all position columns in the data_df, 11 cause we had 11 runs
+    num_columns = len(positions_df.columns) #number of columns
+    for column in range(num_columns): 
         position = positions_df.iloc[:,column] #individual column
         first_index = minVal(position)
-        first_truncated_df = coffee_df.iloc[:first_index-6, j:j+4] #truncate first all values from the end to first index that go with i run, -6 in order to reduce errors on the first cut
-        sec_index = cutStart(first_truncated_df)
-        second_truncated_df = first_truncated_df.iloc[sec_index:, :4]
+        first_truncated_df = data_df.iloc[:first_index-6, [column,column+11]]
+        #(first_truncated_df)# -6 in order to reduce errors when cutting right, also want to truncate time that column that goes with it
+        second_index = cutStart(first_truncated_df)
+        second_truncated_df = first_truncated_df.iloc[second_index:, :]
+        print(second_truncated_df)
         second_truncated_df.plot(kind="line", x = second_truncated_df.columns[0], y = second_truncated_df.columns[1])#graphs for each run 
-        new_list.append(second_truncated_df)#put each group of 4 columns in a list
-        j+=4
+        clean_df = pd.concat([clean_df,second_truncated_df], axis=1)
+        print(clean_df)
         #print(second_truncated_df)
 
-    return new_list
+    return clean_df
         
 
 #Function that finds the minimum value in position and returns its index
@@ -32,7 +37,7 @@ def minVal(position):
     min = position.iat[0]
     for i in range(1, len(position)-1):
         curr = position.iat[i]
-        if curr < min:
+        if curr < min and curr:
             min = curr
             index = i
     #print(index)
@@ -53,5 +58,5 @@ def cutStart(first_truncated_df):
             return i
 
 
-mainCleanData()
+print(mainCleanData(data_df, clean_df))
 # %%
