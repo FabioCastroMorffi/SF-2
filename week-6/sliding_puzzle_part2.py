@@ -45,7 +45,7 @@ def findEmptyTile(board_lst):
     for i in range(len(board_lst)):
         for j in range(len(board_lst[i])):
             if board_lst[i][j] == '  ':
-                print(f"{i}, {j}")
+                #print(f"{i}, {j}")
                 return (i, j)
                 
 #print(findEmptyTile(getNewPuzzle(4)) )           
@@ -79,10 +79,10 @@ def makeMove(board_lst,move):
     position = findEmptyTile(board_lst)
     i = position[0]
     j = position[1]
-    print(board_lst)
+    #print(board_lst)
     if move == "W":
         board_lst[i][j], board_lst[i+1][j] = board_lst[i+1][j], board_lst[i][j]    
-    print(board_lst)
+    #qprint(board_lst)
     if move == "A":
         board_lst[i][j], board_lst[i][j+1] = board_lst[i][j+1], board_lst[i][j]
     if move == "S":
@@ -92,7 +92,8 @@ def makeMove(board_lst,move):
 
 def main():
     print("Hello fellow Player:")
-    print("Your objective in this game is to organize the tiles such that the numbers are in order from top to bottom left to right.") 
+    print("Your objective in this game is to organize TILES \nsuch that the numbers " \
+          "are in order from top to bottom left to right.") 
     print("What should the size of the puzzle be? (Either 3 or 4)")
     size = int(input("> "))
     board = getNewPuzzle(size)
