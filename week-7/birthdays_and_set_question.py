@@ -1,4 +1,4 @@
-def storedic():
+'''def storedic():
     n = ''
     d = {}
     n = input()
@@ -16,11 +16,11 @@ def storedic():
     print(d)
     return d
 storedic()    
-
+'''
 
 '''
 Every evening villagers in a small village gather around a big
-fir and sing songs.
+fire and sing songs.
 
 A prominent memeber of the community is the bard. Every evening,
 if the bard is present, he sings a brand new song that no villager
@@ -76,11 +76,46 @@ Sample Input-3:
 3
 2 1 3
 2 2 1
-4 2 1 1 4 5
+4 2 1 4 5
 
 Output:
 1
 '''
+
+nmb_villagers = int(input())
+nmb_evenings = int(input())
+lst = [set() for _ in range(nmb_villagers-1)]
+for eve in range(nmb_evenings):
+    row_info = input().split()
+    row_info.pop(0) #removing num villagers
+    if '1' in row_info: #if 1 in there everybody(each set) learns a new song(add the number of the song, eve, to their sets)
+        for vill in row_info:
+            if vill != '1':
+                lst[int(vill)-2].add(eve+1)
+                
+    else: # we iteratively union sets so that everyone shares their songs, updating final set and then replacing each numbers set with final set
+        f_set = set()
+        for vill in row_info:
+            f_set = f_set.union(lst[int(vill)-2])
+        for vill in row_info:
+            lst[int(vill)-2] = f_set
+print(lst)
+s = set()
+for i in range(nmb_villagers-1):
+    s.add(i+1)
+
+for e in lst:
+    if e == s:
+        print(e)
+        
+
+    
+
+
+     
+    
+
+
 
 
 
