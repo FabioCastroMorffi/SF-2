@@ -81,32 +81,40 @@ Sample Input-3:
 Output:
 1
 '''
-
+songs = 0
 nmb_villagers = int(input())
 nmb_evenings = int(input())
 lst = [set() for _ in range(nmb_villagers-1)]
-for eve in range(nmb_evenings):
+for i in range(nmb_evenings):
     row_info = input().split()
     row_info.pop(0) #removing num villagers
     if '1' in row_info: #if 1 in there everybody(each set) learns a new song(add the number of the song, eve, to their sets)
+        songs += 1
         for vill in row_info:
             if vill != '1':
-                lst[int(vill)-2].add(eve+1)
+                lst[int(vill)-2].add(songs)
                 
     else: # we iteratively union sets so that everyone shares their songs, updating final set and then replacing each numbers set with final set
+        
         f_set = set()
         for vill in row_info:
-            f_set = f_set.union(lst[int(vill)-2])
+            f_set.update(lst[int(vill)-2])
+            #print(f_set)
         for vill in row_info:
-            lst[int(vill)-2] = f_set
-print(lst)
-s = set()
-for i in range(nmb_villagers-1):
-    s.add(i+1)
+            lst[int(vill)-2].update(f_set)
+            #print(lst[int(vill)-2])
 
-for e in lst:
-    if e == s:
-        print(e)
+
+s = set()
+for i in range(songs):
+    s.add(i+1) #winning set
+#print(f"s = {s}")
+#checking for winning sets
+for i in range(len(lst)):
+    #print(lst[i])
+    if lst[i] == s:
+        print(i+2)
+print(1)
         
 
     
