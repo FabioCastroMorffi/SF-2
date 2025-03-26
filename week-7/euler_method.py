@@ -2,10 +2,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 #df = pd.read_csv("clean_data_multiple_filter.csv")
-mass = 0.003
-area = 190
-air_density = 1.22
-drag_coeff = 0.5
+mass = 0.0068 #(with 8 coffee filters)
+area = 1.90
+air_density = 1.2
+drag_coeff = 0.0097
 def newAcc(v):
     return -9.8 + ((drag_coeff*air_density*area*v**2)/ 2*mass)
 initial_velocity, final_velocity = 0, 0
