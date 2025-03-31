@@ -9,7 +9,7 @@ drag_coeff = 0.0097
 def newAcc(v):
     return -9.8 + ((drag_coeff*air_density*area*v**2)/ 2*mass)
 initial_velocity, final_velocity = 0, 0
-initial_position = 1
+initial_position = 1    
 delta_t = 0.002
 #lst final_velocity = []
 lst_time = []
