@@ -35,7 +35,7 @@ try:
     input_file = open('cats.txt','r')
 except FileNotFoundError: 
     writingCatsAndDogs()
-else:
+#else:
     
 
 # Question 3
