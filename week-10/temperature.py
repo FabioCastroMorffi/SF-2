@@ -70,15 +70,14 @@ def main():
     for key in temp_dict:
         output_file.write(f'{key}'+'\t')
         for i in range(len(temp_dict[key])):
+            monthly_temp = temp_dict[key][i]
             if i == 11:
                 #print(temp_dict[key][i])
-                output_file.write(f'{temp_dict[key][i]}' + '\n')
+                output_file.write(f'{monthly_temp}' + '\n')
             else:
-                output_file.write(f'{temp_dict[key][i]}'+ '\t')
+                output_file.write(f'{monthly_temp}'+ '\t')
 
     output_file.close()
-
-
     input_file.close()
     
 
