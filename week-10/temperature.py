@@ -34,6 +34,15 @@ def avgTempMonth(dict, month):
         avg_temp.append(dict[value][month_dict[month] -1])
     return round(sum(avg_temp)/len(avg_temp),2)
 
+def belowFreezing(dict):
+    lst_months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'September', 'October', 'November', 'December']
+    set_months = set()
+    for key in dict:
+        for i in range(len(dict[key])):
+            if dict[key][i] < 0:
+                set_months.add(lst_months[i])
+    return set_months
+
 
 
 def main():
@@ -47,6 +56,29 @@ def main():
             temp_dict[int(line[0])] = list(map(toCelsius, temp))
     #print(temp_dict)
     #print(avgTempMonth(temp_dict, "JAN"))
+    input_file.seek(0)
+    output_file = open("data_celsius.txt", 'w')
+
+    flag = False
+    for line in input_file:
+        if not flag and line[0][0] != '1':
+            output_file.write(line)
+
+        elif not flag and line[0][0] == '1':
+            flag = True
+    
+    for key in temp_dict:
+        output_file.write(f'{key}'+'\t')
+        for i in range(len(temp_dict[key])):
+            if i == 11:
+                #print(temp_dict[key][i])
+                output_file.write(f'{temp_dict[key][i]}' + '\n')
+            else:
+                output_file.write(f'{temp_dict[key][i]}'+ '\t')
+
+    output_file.close()
+
+
     input_file.close()
     
 
