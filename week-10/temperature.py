@@ -9,7 +9,7 @@ def avgTempYear(dict, year):
     try:
         existing_year = dict[year]
     except KeyError:
-        print("year not in dic")
+        print("The year is not present in the dictionary.")
     else:
         return (round(sum(existing_year)/len(existing_year),2))
     
@@ -50,22 +50,22 @@ def main():
     temp_dict = {}
     #lst_lines = input_file.readlines()
     for line in input_file:
-        if line[0][0] == "1":
+        if line[0] == "1":
             line = line.rstrip().split()
             temp = list(map(float, line[1:]))
             temp_dict[int(line[0])] = list(map(toCelsius, temp))
     #print(temp_dict)
-    #print(avgTempMonth(temp_dict, "JAN"))
+    #print(topThreeYears(temp_dict))
     input_file.seek(0)
     output_file = open("data_celsius.txt", 'w')
 
     flag = False
     for line in input_file:
-        if not flag and line[0][0] != '1':
-            output_file.write(line)
-
-        elif not flag and line[0][0] == '1':
-            flag = True
+        if not flag:
+            if line[0] != '1':
+                output_file.write(line)
+            else:
+                flag = True
     
     for key in temp_dict:
         output_file.write(f'{key}'+'\t')
