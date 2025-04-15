@@ -28,9 +28,15 @@ class Fraction:
         return added_fraction
     def __repr__(self):
         return f'({self.numerator} / {self.denominator}) '
-    
-fraction = Fraction(8,12)
+    def __lt__(self, other_fraction: Fraction)-> bool:
+        return isinstance(other_fraction, Fraction) and (self.numerator / self.denominator < other_fraction.numerator / other_fraction.denominator)
+    #def __sub__(self,other_fraction: Fraction)->Fraction:
 
+    
+fraction = Fraction(5,5)
+fraction1 = Fraction(4,5)
+print(fraction + fraction1)
+print(fraction < fraction1)
 
         
         
