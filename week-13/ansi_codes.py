@@ -1,0 +1,5 @@
+ESC = '\x1b'
+YELLOW = ESC + '[33m'
+GREEN = ESC + '[34m'
+WHITE = ESC + '[37m'
+RESET = ESC + '[0m'
