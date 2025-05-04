@@ -14,7 +14,8 @@ drag_coeff = 0.97
 def newAcc(v):
     return -9.8 + ((drag_coeff*air_density*area*v**2)/ (2*mass)) 
 
-initial_velocity, final_velocity = (real_position.iloc[147] - real_position.iloc[146]) / (real_time.iloc[1] - real_time.iloc[0]), 0
+initial_velocity, final_velocity = (real_position.iloc[147] - real_position.iloc[146])\
+    / (real_time.iloc[1] - real_time.iloc[0]), 0
 running_time = -0.02
 dt = 0.02
 lst_final_velocity = []
@@ -38,7 +39,8 @@ while initial_position>0:
 
 plt.figure(figsize=(10, 6))
 plt.plot(lst_time, lst_position, label="Simulated Drop", linestyle='solid', color='b')
-plt.scatter(real_time, real_position, label="Real-Life Drop", linestyle='solid', color='r')
+plt.scatter(real_time, real_position, label="Real-Life Drop", \
+            linestyle='solid', color='r')
 
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
