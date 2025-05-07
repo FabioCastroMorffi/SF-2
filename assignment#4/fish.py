@@ -5,5 +5,6 @@ class Fish(Animal):
         text = '\nClass: Fish'
         return super().__repr__() + text
     def reproduce(self):
-        text = ' Reptiles reproduce by laying eggs, typically on land rather than water.'
-        print(super().reproduce() + text)
+        text = 'Reptiles reproduce by laying eggs, typically on land rather than water.'
+        print(super().reproduce())
+        print(text)

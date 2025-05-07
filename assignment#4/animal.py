@@ -1,10 +1,11 @@
 from abc import ABCMeta, abstractmethod
 
 class Animal(object, metaclass = ABCMeta):
-    @abstractmethod
-    def __init__(self, legs = 0, fins = 0):
+
+    def __init__(self, legs = 0, fins = 0,wings = 0):
         self.legs = legs
         self.fins = fins
+        self.wings = wings
         
     
     @abstractmethod
@@ -20,10 +21,11 @@ class Animal(object, metaclass = ABCMeta):
         pass
     
     def reproduce(self) -> str:
-        return "Members of this kingdom reproduce by finding a mate of the same species."
+        print("Members of this kingdom reproduce by finding a mate \
+of the same species.") 
     
     def __repr__(self):
-        return f'Kingdom: Animalia'
+        return 'Kingdom: Animalia'
     
 
 

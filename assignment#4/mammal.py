@@ -2,8 +2,10 @@ from animal import Animal
 #no need to repeat abstract stuff (inheriting)
 class Mammal(Animal): #inheritance
     def reproduce(self):
-        result = ' Mammals give birth to live young and raise them until they can be independent'
-        print(super().reproduce() + result)
+        result = 'Mammals give birth to live young and raise them until they\
+can be independent'
+        print(super().reproduce())
+        print(result)
         
     def __repr__(self):
         text = '\nClass: Mammal'

@@ -13,11 +13,11 @@ class Bunny(Mammal, Herbivore, Pet):
         return Mammal.__repr__(self)  + text +'\n'+ Pet.__repr__(self) + '\n\n' + Herbivore.__repr__(self)
 
     def reproduce(self):
-        super().reproduce()
-        print("Bunnies can produce multiple litters per year potentially having 3-8 kits per litter")
-    
+        text = "Bunnies can produce multiple litters per year potentially having 3-8 kits per litter"
+        print(super().reproduce()) 
+        print(text)
     def move(self):
-        print("I move by hopping and I can see behind me...")
+        print("I move by hopping and I can see behind me.")
 
     def sleep(self):
         print("Bunnies are nocturnal animals, typically sleep around 12 to 14 hours a day in short, intermittent periods.")
@@ -29,19 +29,19 @@ class Bunny(Mammal, Herbivore, Pet):
     
     
     
-if __name__ == '__main__':
-    b1 = Bunny()
-    print(b1)
+# if __name__ == '__main__':
+#     b1 = Bunny()
+#     print(b1)
 
 
-    print()
-    b1.reproduce()
+    
+#     b1.reproduce()
 
-    print()
+    
 
-    b1.move()
-    print()
-    b1.eat()
-    print()
-    print(b1.pet())
+#     b1.move()
+#     print()
+#     b1.eat()
+#     print()
+#     print(b1.pet())
 

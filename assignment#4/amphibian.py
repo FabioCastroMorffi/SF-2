@@ -6,4 +6,5 @@ class Amphibian(Animal):
         return super().__repr__() + text
     def reproduce(self):
         text = 'Amphibians reproduce by laying soft eggs in water.'
-        print(super().reproduce() + text)
+        print(super().reproduce())
+        print(text)

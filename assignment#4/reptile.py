@@ -6,5 +6,8 @@ class Reptile(Animal):
         return super().__repr__() + text
     def reproduce(self):
         text = ' Reptiles reproduce by laying eggs, typically on land rather than water.'
-        print(super().reproduce() + text)
+        print(super().reproduce())
+        print(text)
+
+
 
