@@ -36,5 +36,5 @@ if __name__ == '__main__':
     print('Default progression')
     Progression().printProgression(10)
 
-    for values in Progression().lstProgression(10):
-        print(values * 2)
+    #for values in Progression().lstProgression(10):
+    #   print(values * 2)

@@ -9,5 +9,5 @@ class GeometricProgression(Progression):
         self._current *= self._base
     
 if __name__ == '__main__':
-    GeometricProgression(4,8).printProgression(999)
+    GeometricProgression(4,8).printProgression(4)
     

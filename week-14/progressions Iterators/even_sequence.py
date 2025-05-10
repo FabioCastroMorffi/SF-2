@@ -2,18 +2,16 @@ from progression import Progression
 
 class EvenProgression(Progression):
     def __init__(self, start):
-        super().__init__(start)
-        if self.start % 2 != 0:
+        if start % 2 != 0:
             start += 1
+        super().__init__(start)
+        
     def _advance(self):
-        self.start += 2
-    def __iter__(self):
-        return self
-    def __next__(self):
-        self.
-    def printProgression(self, num):
-        return super().printProgression(num)
-    def lstProgression(self, num):
-        return super().lstProgression(num)
+        self._current += 2
     
-Progression(9).printProgression(99)
+    
+    
+    
+if __name__ == '__main__':
+    
+    EvenProgression(9).printProgression(99)

@@ -9,4 +9,4 @@ class Fibonacci(Progression):
         self._current, self._prev = self._prev + self._current, self._current
 
 if __name__ == '__main__':
-    Fibonacci(3).printProgression(5)
+    Fibonacci(2,5).printProgression(9)
