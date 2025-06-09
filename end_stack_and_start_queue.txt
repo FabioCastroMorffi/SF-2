@@ -1,4 +1,8 @@
-'''
+Example 3:
+Use a stack to match tags in a markup language such
+as html. A simple opening html ta has the form <name>
+and the corresponding closing ta has the form </name>.
+
 QUEUE ADT (Abstract Data type):
 
 An abstract data type that supports the following methods for a queu Q:
@@ -8,11 +12,3 @@ Q.dequeue(): remove and return the first element form the Q. If Q is empty an er
 Q.first(): return an element at the front
 Q.isEmpty(): return True if Q is empty, false otherwise
 len(Q): the number of elements in the queue Q
-
-Example 3:
-Use a stack to match tags in a markup language such
-as html. A simple opening html ta has the form <name>
-and the corresponding closing ta has the form </name>.
-
-
-'''
