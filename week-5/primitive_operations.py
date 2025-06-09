@@ -8,7 +8,7 @@ for i in range(1,len(lst)): # n + n
 print(current_max) #1
                    # 7n -1 
 
-## Primitive operations: Assignment, comparaison, etc
+## Primitive operations: Assignment, comparaison, etc1
 
 ## Constant time give or take between 
 # a = shortest time it takes to run the fastest primitive operation

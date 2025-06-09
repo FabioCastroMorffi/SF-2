@@ -1,0 +1,10 @@
+Singly linked list:
+
+Doubly Linked Lists:
+
+--> Need a nested Node class 
+--> constructor: set elem, 
+
+Example: implement a deque using a doubly linked list
+
+

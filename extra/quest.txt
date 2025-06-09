@@ -1,0 +1,10 @@
+Example2: implement a queue based  on a circular array (do i need to pointers)
+Example1: implement a queue based a fixed size array and then give the choice to extend the size (also taking a second argument desired size)
+Example3: implement a queue based in a stack(2 stacks)
+Example4: implement a double ended queue (from both ends you can dequeue and enqueue)
+
+--> D.addFirst(e): add element e to the fornt of dequeue
+--> D.addLast(e): add element e to the end of dequeue
+--> D.deleteFirst(): remove and return first element of deleteFirst
+--> D.deleteLast(): remove and return last element of deleteFirst
+--> rest of similar methods
